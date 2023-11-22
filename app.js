@@ -22,9 +22,9 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
-const dbUrl = process.env.DB_URL;
+// const dbUrl = process.env.DB_URL;
 
-// const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp'
+ const dbUrl = 'mongodb://127.0.0.1:27017/yelp-camp'
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -79,7 +79,9 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet());
+app.use(helmet({
+    referrerPolicy: {policy: "no-referrer"},
+}));
 
 
 const scriptSrcUrls = [
@@ -118,7 +120,7 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/douqbebwk/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
+                "https://res.cloudinary.com/dkpcfughv/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
