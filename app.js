@@ -90,7 +90,7 @@ const scriptSrcUrls = [
     "https://api.mapbox.com/",
     "https://kit.fontawesome.com/",
     "https://cdnjs.cloudflare.com/",
-    "https://cdn.jsdelivr.net",
+    "https://cdn.jsdelivr.net",    
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
@@ -120,7 +120,8 @@ app.use(
                 "'self'",
                 "blob:",
                 "data:",
-                "https://res.cloudinary.com/dkpcfughv/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
+                "https://res.cloudinary.com/dkpcfughv/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!                 
+                "https://res.cloudinary.com/dkpcfughv/", 
                 "https://images.unsplash.com/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
